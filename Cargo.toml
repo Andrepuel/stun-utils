@@ -7,8 +7,10 @@ edition = "2021"
 
 [dependencies]
 clap = { version = "4.0.15", features = ["derive"] }
-thiserror = "1.0"
+env_logger = "0.9"
+log = "0.4"
 stun = "0.4.3"
+thiserror = "1.0"
 tokio = "1.21"
 turn = "0.6.0"
 webrtc-util = "0.6.0"

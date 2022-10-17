@@ -18,6 +18,8 @@ pub enum Subcommand {
 }
 
 fn main() {
+    env_logger::init();
+
     let args = Args::parse();
 
     match args.subcommand {
@@ -33,4 +35,10 @@ pub enum Error {
     Stun(#[from] stun::Error),
     #[error(transparent)]
     Io(#[from] std::io::Error),
+    #[error(transparent)]
+    WebrtcUtil(#[from] webrtc_util::Error),
+    #[error(transparent)]
+    Turn(#[from] turn::Error),
+    #[error("Expected \"turn:server username password\"")]
+    TurnParse
 }
